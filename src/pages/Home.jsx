@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getRecipes } from "../data/recipes";
 import RecipeCard from "../components/RecipeCard";
+import axios from 'axios'; // Import axios
 
 // Home component for displaying featured recipes
 const Home = () => {
@@ -29,8 +29,8 @@ const Home = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/recipes'); // Fetch from API
-        const data = await response.json();
+        const response = await axios.get('https://backend-2-qmay.onrender.com/api/recipes'); // Fetch from API
+        const data = response.data; // Use response.data to get the recipes
         setRecipes(data.slice(0, 3)); // Load only the first 3 recipes
       } catch (error) {
         console.error(error);
