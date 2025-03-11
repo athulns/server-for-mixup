@@ -6,7 +6,7 @@ const RecipeForm = ({ onSubmit }) => {
   const handleChange = (e) => {
     setRecipe({ ...recipe, [e.target.name]: e.target.value });
   };
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(recipe);
