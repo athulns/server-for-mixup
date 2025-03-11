@@ -1,5 +1,6 @@
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from 'axios'; // Import axios
 
 // RecipeDetail component for displaying a single recipe's details
 const RecipeDetail = () => {
@@ -13,11 +14,8 @@ const RecipeDetail = () => {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/recipes/${id}`);
-        if (!response.ok) {
-          throw new Error('Recipe not found');
-        }
-        const data = await response.json();
+        const response = await axios.get(`https://backend-2-qmay.onrender.com/api/recipes/${id}`);
+        const data = response.data; // Use response.data to get the recipe data
         setRecipe(data); // Set the fetched recipe to state
       } catch (error) {
         console.error(error);
