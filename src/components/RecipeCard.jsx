@@ -20,13 +20,13 @@ const RecipeCard = ({ recipe, onDelete }) => {
       <img src={recipe.imageUrl} className="card-img-top" alt={recipe.title} />
       <div className="card-body">
         <h5 className="card-title">{recipe.title}</h5>
-        <p className="card-text text-muted">{recipe.description ? recipe.description.substring(0, 100) : 'No description available'}...</p>
+        <p className="card-text text-muted">{recipe.instructions ? recipe.instructions.substring(0, 100) : 'No description available'}...</p>
         <div className="d-flex justify-content-between mt-2">
           <Link to={`/recipe/${recipe._id}`} className="btn btn-primary mx-1">View Recipe</Link>
           <button className="btn btn-danger mx-1" onClick={() => { 
             onDelete(recipe._id); 
             setMessage('Recipe deleted successfully!'); 
-          }}>Delete</button>
+          }}>Delete</button> {/* Added Delete button */}
           <button className="btn btn-success mx-1" onClick={handleSave}>Save</button> {/* Added Save button */}
         </div>
         {message && <div className="alert alert-info">{message}</div>}
