@@ -1,6 +1,7 @@
 import RecipeCard from "../components/RecipeCard";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import axios from 'axios'; // Import axios
 
 // Recipes component for displaying all recipes
 const Recipes = () => {
@@ -10,12 +11,7 @@ const Recipes = () => {
   // Function to delete a recipe from the list
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/recipes/${id}`, {
-        method: 'DELETE',
-      });
-      if (!response.ok) {
-        throw new Error('Failed to delete the recipe');
-      }
+      const response = await axios.delete(`https://backend-2-qmay.onrender.com/api/recipes/${id}`);
       setRecipes((prevRecipes) => prevRecipes.filter(recipe => recipe._id !== id)); // Use _id for filtering
     } catch (error) {
       console.error(error);
@@ -32,11 +28,8 @@ const Recipes = () => {
     const fetchRecipes = async () => {
       console.log("Fetching recipes...");
       try {
-        const response = await fetch('http://localhost:5000/api/recipes');
-        if (!response.ok) {
-          throw new Error('Failed to fetch recipes');
-        }
-        const data = await response.json();
+        const response = await axios.get('https://backend-2-qmay.onrender.com/api/recipes');
+        const data = response.data; // Use response.data to get the recipes
         setRecipes(data); // Set the fetched recipes to state
       } catch (error) {
         console.error(error);
