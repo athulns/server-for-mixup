@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# mixup-recipe-sharing-site
+MixUp Recipe Sharing Site is a dynamic platform where food lovers can explore, share, and save their favorite recipes. Users can add new recipes, browse curated collections, and navigate seamlessly through an intuitive interface. With a user-friendly design and local storage support, it’s the perfect place to discover and organize delicious dishes!
+>>>>>>> d4fe0e8f81c17b000c0695bb6be0995d28be49db
