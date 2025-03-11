@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import axios from 'axios';
 const AddRecipe = () => {
   const [newRecipe, setNewRecipe] = useState({
     title: "",
@@ -18,7 +18,7 @@ const AddRecipe = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Ensure no field is empty
+    // Ensure all fields are filled before adding a recipe
     if (!newRecipe.title || !newRecipe.description || !newRecipe.image || !newRecipe.ingredients) {
       alert("Please fill in all fields before adding a recipe.");
       return;
@@ -33,20 +33,18 @@ const AddRecipe = () => {
     };
 
     // Send a POST request to the backend API to add the recipe
-    const response = await fetch('http://localhost:5000/api/recipes', {
-        method: 'POST',
+    const response = await axios.post('https://backend-2-qmay.onrender.com/api/recipes', formattedRecipe, {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formattedRecipe),
     });
 
-    if (!response.ok) {
+    if (response.status < 200 || response.status >= 300) {
         alert("Failed to add recipe. Please try again.");
         return;
     }
 
-    const createdRecipe = await response.json(); // Get the created recipe from the response
+    const createdRecipe = response.data; // Get the created recipe from the response
     console.log("Created Recipe:", createdRecipe); // Log the created recipe for debugging
 
     alert("Recipe added successfully!"); // Notify user of success
