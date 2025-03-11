@@ -21,4 +21,3 @@ const RecipeView = ({ recipe }) => {
   };
   
   export default RecipeView;
-  
