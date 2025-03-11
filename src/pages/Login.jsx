@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react';
+import axios from 'axios'; // Import axios
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+
 
 // Login component for user authentication
 const Login = () => {
@@ -13,7 +14,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      const response = await axios.post('https://backend-2-qmay.onrender.com/api/auth/login', { email, password });
       console.log('Login response:', response);
       alert('Login successful!'); // Notify user of successful login
       navigate('/'); // Redirect to home page
