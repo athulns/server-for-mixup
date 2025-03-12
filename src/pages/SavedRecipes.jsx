@@ -29,7 +29,7 @@ const SavedRecipes = () => {
                 <img src={recipe.imageUrl} className="card-img-top" alt={recipe.title} />
                 <div className="card-body">
                   <h5 className="card-title">{recipe.title}</h5>
-                  <p className="card-text text-muted">{recipe.description ? recipe.description.substring(0, 100) : 'No description available'}...</p>
+                  <p className="card-text text-muted">{recipe.instructions ? recipe.instructions.substring(0, 100) : 'No description available'}...</p>
                   <Link to={`/recipe/${recipe._id}`} className="btn btn-primary">View Recipe</Link> {/* Single View button */}
                 </div>
               </div>
