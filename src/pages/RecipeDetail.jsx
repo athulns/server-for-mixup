@@ -64,6 +64,10 @@ const RecipeDetail = () => {
               <li key={index}>{ingredient}</li>
             ))}
           </ul>
+
+          <h4>Instructions:</h4>
+          <p>{recipe.instructions}</p>
+          
           <div className="d-flex justify-content-start mt-3 mb-3">
             <button className="btn btn-success" onClick={handleSave}>
               Save Recipe
