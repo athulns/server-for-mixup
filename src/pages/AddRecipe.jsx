@@ -70,7 +70,7 @@ const AddRecipe = () => {
         </div>
 
         <div className="mb-3">
-          <label className="form-label">Description</label>
+          <label className="form-label">Instructions</label>
           <textarea
             className="form-control"
             name="description"
@@ -81,7 +81,7 @@ const AddRecipe = () => {
         </div>
 
         <div className="mb-3">
-          <label className="form-label">Image URL</label>
+          <label className="form-label">Image URL(Use Landscape images if possible)</label>
           <input
             type="text"
             className="form-control"
