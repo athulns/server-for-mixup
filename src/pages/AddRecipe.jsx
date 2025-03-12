@@ -81,7 +81,7 @@ const AddRecipe = () => {
         </div>
 
         <div className="mb-3">
-          <label className="form-label">Image URL(Use Landscape images if possible)</label>
+          <label className="form-label">Image URL *(Use landscape images if possible) </label>
           <input
             type="text"
             className="form-control"
@@ -93,7 +93,7 @@ const AddRecipe = () => {
         </div>
 
         <div className="mb-3">
-          <label className="form-label">Ingredients (comma-separated)</label>
+          <label className="form-label">Ingredients *(comma-separated) </label>
           <input
             type="text"
             className="form-control"
